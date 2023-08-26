@@ -1,3 +1,4 @@
+#### $\textcolor{green}{\textsf{Colors work}}$
 #Normal
 from pynput.keyboard import Listener
 def anonymous (key): 
